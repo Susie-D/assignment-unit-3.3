@@ -47,26 +47,55 @@ for (let i = 0; i <= supplyChanges.length - 1; i++) {
   }
 }
 
-console.log('Zeroes', zeroes);
-console.log('Negatives', negatives);
-console.log('Positives', positives);
-
 console.log(
   '6. Looping through supplyChanges to populate arrays with positive, negative, and zero values:'
 );
+
+console.log('Zeroes', zeroes);
+console.log('Negatives', negatives);
+console.log('Positives', positives);
 
 // ***** STRETCH GOALS *********************************************
 // 7. Rewrite the 'for' loop from #6 as a 'for...of' loop. Instead of 'positives',
 //    'negatives', and 'zeroes', create three new arrays named 'stretchPositives',
 //    'stretchNegatives', and 'stretchZeroes'.
+
 console.log(
   '7. Looping through supplyChanges to populate more arrays with positive, negative, and zero values:'
 );
 
+let stretchPositives = [];
+let stretchNegatives = [];
+let stretchZeroes = [];
+
+for (supply of supplyChanges) {
+  if (supply === 0) {
+    stretchZeroes.push(supply);
+  } else if (supply < 0) {
+    stretchNegatives.push(supply);
+  } else {
+    stretchPositives.push(supply);
+  }
+}
+
+console.log('Stretch Zeroes', stretchZeroes);
+console.log('Stretch Negatives', stretchNegatives);
+console.log('Stretch Positives', stretchPositives);
+
 // 8. Create a variable called 'totalParts' and assign it a value of 0.
 //    Then, write a loop that adds each value of the 'supplyChanges'
 //    array to the 'totalParts' variable.
-console.log('8. Looping through supplyChanges to calculate the sum:');
+
+let totalParts = 0;
+
+for (let i = 0; i <= supplyChanges.length - 1; i++) {
+  totalParts += supplyChanges[i];
+}
+
+console.log(
+  '8. Looping through supplyChanges to calculate the sum:',
+  totalParts
+);
 
 // 9. We have a large stash of parts in our warehouse that we
 //    need to box up and get ready for shipment. There are 572
@@ -79,7 +108,19 @@ console.log('8. Looping through supplyChanges to calculate the sum:');
 //    the value of 'parts' should reflect how many parts are
 //    "left over," and the value of 'boxesFilled' should reflect
 //    how many boxes were filled.
-console.log('9. Filling boxes with a "while" loop');
+
+let parts = 572;
+let boxesFilled = 0; // only takes 7 parts at one time
+// parts / 7 = 81.714
+
+do {
+  parts = parts - 7;
+  boxesFilled++;
+  // console.log('boxes', boxesFilled);
+  // console.log('parts', parts);
+} while (parts > 7);
+
+console.log('9. Filling boxes with a "while" loop', boxesFilled);
 
 // DO NOT MODIFY
 // Used for automated testing

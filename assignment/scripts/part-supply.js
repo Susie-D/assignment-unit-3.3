@@ -121,6 +121,7 @@ do {
 } while (parts > 7);
 
 console.log('9. Filling boxes with a "while" loop', boxesFilled);
+console.log('Parts that are left over', parts);
 
 // DO NOT MODIFY
 // Used for automated testing
